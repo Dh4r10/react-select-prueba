@@ -5,6 +5,8 @@ import axios from 'axios';
 const loadOptions = async (inputValue = null) => {
   try {
     if (!inputValue) return;
+    if (inputValue.length < 3) return;
+
     const response = await axios.get(
       `http://127.0.0.1:8000/api/productos/?denominacion=${inputValue}`
     );
